@@ -38,7 +38,7 @@ def propose_initial(client: LLMClient) -> Proposal:
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": prompt},
     ]
-    data = client.query_json(messages, images=[STRUCTURE_FIG])
+    data = client.query_json(messages) # , images=[STRUCTURE_FIG] cannot interpret images right now
     return _build_proposal(data)
 
 
@@ -61,8 +61,11 @@ def propose_improvement(
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": prompt},
     ]
-    images = [STRUCTURE_FIG]
+    # images = [STRUCTURE_FIG]
+    images = []
+    if STRUCTURE_FIG.exists():
+        images.append(STRUCTURE_FIG)
     if plot_image.exists():
         images.append(plot_image)
-    data = client.query_json(messages, images=images)
+    data = client.query_json(messages, images=images if images else None)
     return _build_proposal(data)
