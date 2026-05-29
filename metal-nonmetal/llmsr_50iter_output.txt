@@ -1,0 +1,761 @@
+/Users/shaashvatshetty/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+<string>:1: RuntimeWarning: invalid value encountered in power
+<string>:1: RuntimeWarning: invalid value encountered in power
+<string>:1: RuntimeWarning: invalid value encountered in sqrt
+<string>:1: RuntimeWarning: invalid value encountered in power
+<string>:1: RuntimeWarning: invalid value encountered in power
+<string>:1: RuntimeWarning: invalid value encountered in power
+Loading data...
+Loaded 299 materials (188 metals, 111 nonmetals)
+
+============================================================
+BASELINE (SISSO paper descriptor)
+  f1 = xA * packing * IE_B * sqrt(X_B) / X_A
+  f2 = X_A**2 * abs(abs(1 - 2*xA) - xA**2 * X_B / X_A)
+  Train accuracy : 0.9866  (98.7%)
+  LOOCV accuracy : 0.9866  (98.7%)
+============================================================
+
+Starting LLM-SR loop: 50 iterations, top-5 survivors
+Cold start: no seeding, no SISSO baseline in the population.
+
+--- Iteration 1/50 ---
+  [cold start: requesting diverse fresh proposals]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+    f1='abs(X_B - X_A) / (packing + 1e-3)'  =>  LOOCV=0.6856 train=0.6856
+    f1='sqrt(packing) * (X_B - X_A)'  =>  LOOCV=0.8562 train=0.8562
+    f1='(packing**2) - abs(X_B - X_A)'  =>  LOOCV=0.7559 train=0.7559
+    f1='(rcov_A + rcov_B) / (dAB + 1e-3)'  =>  LOOCV=0.8997 train=0.8997
+    f1='sin(packing) + (X_B - X_A) * 0.5'  =>  LOOCV=0.6990 train=0.7023
+  Best so far: LOOCV=0.9064  train=0.9064
+    f1 = packing * (X_B - X_A)
+    f2 = IE_A - IE_B
+
+--- Iteration 2/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)**2'  =>  LOOCV=0.8595 train=0.8595
+    f1='(rcov_A + rcov_B) / (dAB + 1e-3)'  =>  LOOCV=0.8763 train=0.8796
+    f1='sqrt(packing) * (X_B - X_A)'  =>  LOOCV=0.8829 train=0.8829
+    f1='packing**1.5 - abs(X_B - X_A)'  =>  LOOCV=0.7759 train=0.7793
+    f1='sin(packing) + (X_B - X_A) * 0.8'  =>  LOOCV=0.7291 train=0.7324
+    f1='sqrt(packing) * (X_B - X_A)'  =>  LOOCV=0.8562 train=0.8595
+  Best so far: LOOCV=0.9064  train=0.9064
+    f1 = packing * (X_B - X_A)
+    f2 = IE_A - IE_B
+
+--- Iteration 3/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) ** 1.1'  =>  INVALID
+    f1='(rcov_A + rcov_B) / (dAB ** 1.05 + 1e-3)'  =>  LOOCV=0.8696 train=0.8729
+    f1='sqrt(packing) * (X_B - X_A)'  =>  LOOCV=0.8829 train=0.8829
+    f1='packing * (X_A - X_B) ** 2'  =>  LOOCV=0.8595 train=0.8595
+    f1='(rcov_A + rcov_B) / (dAB + 1e-3)'  =>  LOOCV=0.8763 train=0.8796
+    f1='sqrt(packing) * (X_B - X_A)'  =>  LOOCV=0.8829 train=0.8829
+  Best so far: LOOCV=0.9064  train=0.9064
+    f1 = packing * (X_B - X_A)
+    f2 = IE_A - IE_B
+
+--- Iteration 4/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) ** 2'  =>  LOOCV=0.8595 train=0.8595
+    f1='sqrt(packing) * (X_B - X_A)'  =>  LOOCV=0.8562 train=0.8629
+    f1='(rcov_A + rcov_B) / (dAB + 1e-3)'  =>  LOOCV=0.8997 train=0.8997
+    f1='sqrt(packing) * (X_B - X_A)'  =>  LOOCV=0.8729 train=0.8763
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='(rcov_A + rcov_B) / (dAB + 1e-3)'  =>  LOOCV=0.8763 train=0.8796
+  Best so far: LOOCV=0.9097  train=0.9097
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) / (2 + abs(IE_A - IE_B) + 1e-3)
+
+--- Iteration 5/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * sqrt(abs(X_B - X_A))'  =>  LOOCV=0.8863 train=0.8963
+    f1='(rcov_A + rcov_B) / (dAB + 1e-3)'  =>  LOOCV=0.8361 train=0.8395
+    f1='sqrt(packing) * (X_B - X_A)'  =>  LOOCV=0.8629 train=0.8629
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9130
+    f1='sqrt(packing) * (X_B - X_A)'  =>  LOOCV=0.8696 train=0.8696
+    f1='(rcov_A + rcov_B) / (dAB + 1e-3)'  =>  LOOCV=0.8528 train=0.8562
+  Best so far: LOOCV=0.9097  train=0.9097
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) / (2 + abs(IE_A - IE_B) + 1e-3)
+
+--- Iteration 6/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) ** 1.1'  =>  INVALID
+    f1='packing * (X_B - X_A)'  =>  INVALID
+    f1='(rcov_A + rcov_B) / (dAB + 1e-3)'  =>  LOOCV=0.8528 train=0.8562
+    f1='(rcov_A + rcov_B) / (dAB + 1e-3)'  =>  INVALID
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+  Best so far: LOOCV=0.9097  train=0.9097
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) / (2 + abs(IE_A - IE_B) + 1e-3)
+
+--- Iteration 7/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+  Best so far: LOOCV=0.9097  train=0.9097
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) / (2 + abs(IE_A - IE_B) + 1e-3)
+
+--- Iteration 8/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='sqrt(packing) * (X_B - X_A)'  =>  LOOCV=0.8662 train=0.8662
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+    f1='packing * (X_B - X_A)'  =>  INVALID
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+  Best so far: LOOCV=0.9097  train=0.9097
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) / (2 + abs(IE_A - IE_B) + 1e-3)
+
+--- Iteration 9/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) ** 1.1'  =>  INVALID
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9064
+  Best so far: LOOCV=0.9097  train=0.9097
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) / (2 + abs(IE_A - IE_B) + 1e-3)
+
+--- Iteration 10/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+  Best so far: LOOCV=0.9097  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 =  (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B))
+
+--- Iteration 11/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9064
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9097
+    f1='(X_B - X_A) * log(packing + 1e-3)'  =>  LOOCV=0.8662 train=0.8696
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+  Best so far: LOOCV=0.9097  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 =  (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B))
+
+--- Iteration 12/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.8997
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+    f1='packing * sin(X_B - X_A)'  =>  LOOCV=0.8395 train=0.8395
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+  Best so far: LOOCV=0.9097  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 =  (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B))
+
+--- Iteration 13/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+<string>:1: RuntimeWarning: invalid value encountered in power
+<string>:1: RuntimeWarning: invalid value encountered in power
+<string>:1: RuntimeWarning: invalid value encountered in power
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+  Best so far: LOOCV=0.9097  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 =  (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B))
+
+--- Iteration 14/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9064
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+  Best so far: LOOCV=0.9097  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 =  (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B))
+
+--- Iteration 15/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+    f1='packing * (X_B - X_A) ** 1.1'  =>  INVALID
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+  Best so far: LOOCV=0.9097  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 =  (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B))
+
+--- Iteration 16/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 17/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9030
+    f1='packing * (X_B - X_A) ** 1.1'  =>  INVALID
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='sqrt(packing) * (X_B - X_A)'  =>  LOOCV=0.8829 train=0.8863
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 18/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 19/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A) ** 1.1'  =>  INVALID
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 20/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 21/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9064
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 22/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9064 train=0.9097
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 23/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 24/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A) + 0.1'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 25/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A) + 0.1'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 26/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+<string>:1: RuntimeWarning: invalid value encountered in power
+<string>:1: RuntimeWarning: invalid value encountered in power
+<string>:1: RuntimeWarning: invalid value encountered in power
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9030 train=0.9030
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 27/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A) + sqrt(X_A * X_B)'  =>  LOOCV=0.8963 train=0.8963
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A) ** 1.1'  =>  INVALID
+  Best so far: LOOCV=0.9130  train=0.9130
+    f1 = packing * (X_B - X_A)
+    f2 = (IE_A + IE_B) ** 0.5 / (2 + abs(IE_A - IE_B) ** 0.9)
+
+--- Iteration 28/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A) + sqrt(IE_A)'  =>  LOOCV=0.8963 train=0.8997
+  Best so far: LOOCV=0.9398  train=0.9431
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ((IE_A + IE_B) ** 0.5) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 29/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.8997 train=0.9030
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + (IE_A - IE_B)'  =>  LOOCV=0.8094 train=0.8094
+  Best so far: LOOCV=0.9398  train=0.9431
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ((IE_A + IE_B) ** 0.5) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 30/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + sqrt(packing)'  =>  LOOCV=0.9331 train=0.9331
+    f1='(packing * (X_B - X_A)) ** 1.05'  =>  INVALID
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+  Best so far: LOOCV=0.9398  train=0.9431
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ((IE_A + IE_B) ** 0.5) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 31/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9365 train=0.9365
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+  Best so far: LOOCV=0.9398  train=0.9431
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ((IE_A + IE_B) ** 0.5) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 32/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(abs(packing - 1e-3) + '  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + (log(packing + 1e-3) ** 1.'  =>  INVALID
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+  Best so far: LOOCV=0.9398  train=0.9431
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ((IE_A + IE_B) ** 0.5) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 33/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + sqrt(packing + 1e-3)'  =>  LOOCV=0.9331 train=0.9331
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='(packing * (X_B - X_A)) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+  Best so far: LOOCV=0.9398  train=0.9431
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ((IE_A + IE_B) ** 0.5) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 34/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + sqrt(packing + 1e-3)'  =>  LOOCV=0.9331 train=0.9331
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + sqrt(packing + 1e-3)'  =>  LOOCV=0.9331 train=0.9331
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+  Best so far: LOOCV=0.9398  train=0.9431
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ((IE_A + IE_B) ** 0.5) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 35/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + sqrt(packing + 1e-3)'  =>  LOOCV=0.9331 train=0.9331
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9465
+  Best so far: LOOCV=0.9431  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ( (IE_A + IE_B) ** 0.5 + IE_A ) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 36/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+  Best so far: LOOCV=0.9431  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ( (IE_A + IE_B) ** 0.5 + IE_A ) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 37/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+<string>:1: RuntimeWarning: invalid value encountered in power
+    f1='packing * (X_B - X_A) + sqrt(packing + 1e-3)'  =>  LOOCV=0.9331 train=0.9331
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A)'  =>  LOOCV=0.9130 train=0.9130
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+  Best so far: LOOCV=0.9431  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ( (IE_A + IE_B) ** 0.5 + IE_A ) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 38/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + sqrt(packing + 1e-3)'  =>  LOOCV=0.9331 train=0.9331
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+  Best so far: LOOCV=0.9431  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ( (IE_A + IE_B) ** 0.5 + IE_A ) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 39/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+  Best so far: LOOCV=0.9431  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = ( (IE_A + IE_B) ** 0.5 + IE_A ) / (abs(IE_A - IE_B) + 1.2)
+
+--- Iteration 40/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9365 train=0.9498
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+  Best so far: LOOCV=0.9465  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+--- Iteration 41/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9398
+  Best so far: LOOCV=0.9465  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+--- Iteration 42/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9365 train=0.9398
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9465
+  Best so far: LOOCV=0.9465  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+--- Iteration 43/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='(packing * (X_B - X_A)) ** 1.05 + log(packing + 1e'  =>  INVALID
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+  Best so far: LOOCV=0.9465  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+--- Iteration 44/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9398
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9398 train=0.9398
+  Best so far: LOOCV=0.9465  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+--- Iteration 45/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9465
+    f1='packing * (X_B - X_A) + 0.5 * log(packing + 1e-3)'  =>  LOOCV=0.9365 train=0.9365
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+  Best so far: LOOCV=0.9465  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+--- Iteration 46/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) - log(packing + 1e-3)'  =>  LOOCV=0.9097 train=0.9130
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + sqrt(IE_A + IE_B)'  =>  LOOCV=0.8896 train=0.8896
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+  Best so far: LOOCV=0.9465  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+--- Iteration 47/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + sqrt(packing + 1e-3)'  =>  LOOCV=0.9365 train=0.9398
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + abs(log(packing + 1e-3))'  =>  LOOCV=0.9398 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+<string>:1: RuntimeWarning: invalid value encountered in power
+<string>:1: RuntimeWarning: invalid value encountered in power
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+  Best so far: LOOCV=0.9465  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+--- Iteration 48/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) ** 1.05 + log(packing + 1e-3'  =>  INVALID
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+  Best so far: LOOCV=0.9465  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+--- Iteration 49/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + sqrt(packing + 1e-3)'  =>  LOOCV=0.9365 train=0.9365
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + abs(packing - 1e-3)'  =>  LOOCV=0.9398 train=0.9498
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+  Best so far: LOOCV=0.9465  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+--- Iteration 50/50 ---
+  [evolving: requesting mutations + crossovers of top branches]
+  Received 6 candidates from LLM
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='(packing * (X_B - X_A)) ** 1.05 + log(packing + 1e'  =>  INVALID
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9465 train=0.9465
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+    f1='packing * (X_B - X_A) + log(packing + 1e-3)'  =>  LOOCV=0.9431 train=0.9431
+  Best so far: LOOCV=0.9465  train=0.9465
+    f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+    f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+
+======================================================================
+FINAL RESULTS — TOP 10 DISCOVERED DESCRIPTORS
+======================================================================
+
+Rank    LOOCV   Train  f1 / f2
+----------------------------------------------------------------------
+  1    0.9465  0.9465  
+       f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+       f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+
+  2    0.9465  0.9465  
+       f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+       f2 = sqrt((IE_A + IE_B) ** 0.8) + log(packing + 1e-3)
+
+  3    0.9465  0.9465  
+       f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+       f2 = log(packing + 1e-3) + (sqrt(IE_A + IE_B)) ** 0.9
+
+  4    0.9465  0.9465  
+       f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+       f2 = sqrt((IE_A + IE_B) ** 0.8) + log(packing + 1e-3)
+
+  5    0.9465  0.9465  
+       f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+       f2 = log(packing + 1e-3) + (sqrt(IE_A + IE_B)) ** 0.92
+
+  6    0.9465  0.9465  
+       f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+       f2 = sqrt(IE_A + IE_B) ** 0.85 + log(packing + 1e-3)
+
+  7    0.9465  0.9465  
+       f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+       f2 = log(packing + 1e-3) + (sqrt(IE_A + IE_B)) ** 0.92
+
+  8    0.9465  0.9465  
+       f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+       f2 = sqrt((IE_A + IE_B) ** 0.8) + abs(log(packing + 1e-3))
+
+  9    0.9465  0.9465  
+       f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+       f2 = log(packing + 1e-3) + sqrt((IE_A + IE_B) ** 0.85)
+
+  10   0.9465  0.9465  
+       f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+       f2 = log(packing + 1e-3) + (sqrt(IE_A + IE_B)) ** 0.925
+
+======================================================================
+BEST DISCOVERED DESCRIPTOR
+  f1 = packing * (X_B - X_A) + log(packing + 1e-3)
+  f2 = log(packing + 1e-3) + sqrt(IE_A + IE_B) ** 0.8
+  Train accuracy : 0.9465  (94.6%)
+  LOOCV accuracy : 0.9465  (94.6%)
+
+COMPARED TO SISSO BASELINE
+  Train accuracy : 0.9866  (98.7%)
+  LOOCV accuracy : 0.9866  (98.7%)
+
+  => LOOCV did not improve (-4.01%), train: -4.01%
+
+--- Misclassification Analysis (best descriptor) ---
+  16 misclassified materials:
+Material prototype category predicted
+     FeC      NaCl    metal  nonmetal
+    IrO2      TiO2    metal  nonmetal
+    RuO2      TiO2    metal  nonmetal
+    ReO3      ReO3    metal  nonmetal
+      BP       ZnS nonmetal     metal
+    GaSb       ZnS nonmetal     metal
+    HgTe       ZnS nonmetal     metal
+     CsH      NaCl nonmetal     metal
+      KH      NaCl nonmetal     metal
+     GdN      NaCl nonmetal     metal
+     EuS      NaCl nonmetal     metal
+  Eu4As3     Th3P4 nonmetal     metal
+   Eu3S4     Th3P4 nonmetal     metal
+      YP      NaCl nonmetal     metal
+  Th3As4     Th3P4 nonmetal     metal
+  La3Te4     Th3P4 nonmetal     metal
+======================================================================

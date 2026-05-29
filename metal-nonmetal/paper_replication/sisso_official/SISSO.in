@@ -1,0 +1,26 @@
+!================================================================
+! SISSO input for replicating the 299-binary metal/nonmetal
+! classification from Ouyang et al., Phys. Rev. Mater. 2, 083802
+! (2018), Table I last row (target accuracy: ~99.0%).
+!================================================================
+ptype=2                ! 2 = classification
+ntask=1
+desc_dim=2             ! 2D descriptor (paper's choice)
+nsample=(188,111)      ! 188 metals, 111 nonmetals (rows grouped by class in train.dat)
+restart=0
+
+!=== Feature construction & SIS ===
+fstore=1
+nsf=7                  ! 7 primary features: IE_A, IE_B, X_A, X_B, xA, xB, Vcell/Vatom
+ops='(+)(-)(*)(/)(exp)(log)(^-1)(^2)(^3)(sqrt)(|-|)'  ! paper operator set
+fcomplexity=3          ! Phi_3 feature space (~1e8 candidates)
+funit=(1:7)            ! treat all 7 features as same unit (no dimensional filtering)
+fmax_min=1e-3
+fmax_max=1e5
+nf_sis=1000            ! use 1000-2000 for fast runs; increase + mpirun on server for full search
+
+!=== Descriptor identification ===
+method_so='L0'
+nmodel=100
+isconvex=(1,1)         ! both groups are convex domains
+bwidth=0.001

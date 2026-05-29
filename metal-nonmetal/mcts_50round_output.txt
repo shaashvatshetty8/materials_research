@@ -1,0 +1,370 @@
+/Users/shaashvatshetty/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+======================================================================
+MCTS Symbolic Regression for Metal/Nonmetal Classification
+======================================================================
+
+Loading data...
+Loaded 299 materials (188 metals, 111 nonmetals)
+
+SISSO baseline:  train=0.9866  LOOCV=0.9866
+
+Asking LLM for feature shortlist (one-shot prior)...
+  Shortlist: ['packing', 'dAB', 'X_B', 'IE_A', 'xA', 'rcov_A']
+  MCTS action space: 6 features + 4 binary ops + 3 unary ops
+
+Running 50 alternating rounds (SIM_PER_ROUND=200, TOP_K=5)
+
+Initial seed: f1='X_A - X_B', f2='packing', LOOCV=0.9431
+
+--- Round 1/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9398 <= cur 0.9431
+    f1 = X_A - X_B
+    f2 = packing
+
+--- Round 2/50: refining f2 (f1 fixed) ---
+  [accept] new working pair  LOOCV=0.9565
+    f1 = X_A - X_B
+    f2 = log(abs(packing)+1e-3)
+
+--- Round 3/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9532 <= cur 0.9565
+    f1 = X_A - X_B
+    f2 = log(abs(packing)+1e-3)
+
+--- Round 4/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9565
+    f1 = X_A - X_B
+    f2 = log(abs(packing)+1e-3)
+
+--- Round 5/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9398 <= cur 0.9565
+    f1 = X_A - X_B
+    f2 = log(abs(packing)+1e-3)
+
+--- Round 6/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9565
+    f1 = X_A - X_B
+    f2 = log(abs(packing)+1e-3)
+
+--- Round 7/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9331 <= cur 0.9565
+    f1 = X_A - X_B
+    f2 = log(abs(packing)+1e-3)
+
+--- Round 8/50: refining f2 (f1 fixed) ---
+  [accept] new working pair  LOOCV=0.9599
+    f1 = X_A - X_B
+    f2 = (sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+
+--- Round 9/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9431 <= cur 0.9599
+    f1 = X_A - X_B
+    f2 = (sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+
+--- Round 10/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9599
+    f1 = X_A - X_B
+    f2 = (sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+
+  >>> top-5 after round 10:
+      1. LOOCV=0.9599  f1=X_A - X_B  f2=(sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+      2. LOOCV=0.9565  f1=X_A - X_B  f2=log(abs(packing)+1e-3)
+      3. LOOCV=0.9565  f1=X_A - X_B  f2=(log(abs(packing)+1e-3))*(xA)
+      4. LOOCV=0.9565  f1=X_A - X_B  f2=log(abs(packing)+1e-3)
+      5. LOOCV=0.9565  f1=X_A - X_B  f2=log(abs(packing)+1e-3)
+
+--- Round 11/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9398 <= cur 0.9599
+    f1 = X_A - X_B
+    f2 = (sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+
+--- Round 12/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9599 <= cur 0.9599
+    f1 = X_A - X_B
+    f2 = (sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+
+--- Round 13/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9431 <= cur 0.9599
+    f1 = X_A - X_B
+    f2 = (sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+
+--- Round 14/50: refining f2 (f1 fixed) ---
+  [accept] new working pair  LOOCV=0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 15/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9431 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 16/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9599 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 17/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9498 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 18/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9599 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 19/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9465 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 20/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9599 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+  >>> top-5 after round 20:
+      1. LOOCV=0.9632  f1=X_A - X_B  f2=(((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+      2. LOOCV=0.9599  f1=X_A - X_B  f2=(sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+      3. LOOCV=0.9599  f1=X_A - X_B  f2=((abs(IE_A))/(abs(packing)+1e-3))+(sqrt(abs(rcov_A)))
+      4. LOOCV=0.9599  f1=X_A - X_B  f2=(X_B)-(packing)
+      5. LOOCV=0.9599  f1=X_A - X_B  f2=(X_B)-(abs(packing))
+
+--- Round 21/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9532 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 22/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 23/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 24/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9632 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 25/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 26/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9599 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 27/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9532 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 28/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 29/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9532 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 30/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+  >>> top-5 after round 30:
+      1. LOOCV=0.9632  f1=X_A - X_B  f2=(((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+      2. LOOCV=0.9632  f1=X_A - X_B  f2=((abs(X_B))/(abs(packing)+1e-3))-(packing)
+      3. LOOCV=0.9599  f1=X_A - X_B  f2=(sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+      4. LOOCV=0.9599  f1=X_A - X_B  f2=((abs(IE_A))/(abs(packing)+1e-3))+(sqrt(abs(rcov_A)))
+      5. LOOCV=0.9599  f1=X_A - X_B  f2=(X_B)-(packing)
+
+--- Round 31/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 32/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9599 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 33/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9498 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 34/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 35/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9498 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 36/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9599 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 37/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9431 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 38/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9599 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 39/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9498 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 40/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+  >>> top-5 after round 40:
+      1. LOOCV=0.9632  f1=X_A - X_B  f2=(((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+      2. LOOCV=0.9632  f1=X_A - X_B  f2=((abs(X_B))/(abs(packing)+1e-3))-(packing)
+      3. LOOCV=0.9599  f1=X_A - X_B  f2=(sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+      4. LOOCV=0.9599  f1=X_A - X_B  f2=((abs(IE_A))/(abs(packing)+1e-3))+(sqrt(abs(rcov_A)))
+      5. LOOCV=0.9599  f1=X_A - X_B  f2=(X_B)-(packing)
+
+--- Round 41/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9465 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 42/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 43/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9431 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 44/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9599 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 45/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9498 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 46/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 47/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9431 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 48/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 49/50: refining f1 (f2 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+--- Round 50/50: refining f2 (f1 fixed) ---
+  [reject] candidate 0.9565 <= cur 0.9632
+    f1 = X_A - X_B
+    f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+
+  >>> top-5 after round 50:
+      1. LOOCV=0.9632  f1=X_A - X_B  f2=(((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+      2. LOOCV=0.9632  f1=X_A - X_B  f2=((abs(X_B))/(abs(packing)+1e-3))-(packing)
+      3. LOOCV=0.9599  f1=X_A - X_B  f2=(sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+      4. LOOCV=0.9599  f1=X_A - X_B  f2=((abs(IE_A))/(abs(packing)+1e-3))+(sqrt(abs(rcov_A)))
+      5. LOOCV=0.9599  f1=X_A - X_B  f2=(X_B)-(packing)
+
+
+--- Final evaluation ---
+
+======================================================================
+FINAL RESULTS — TOP 10 PAIRS DISCOVERED OVER ALL ROUNDS
+======================================================================
+   1. LOOCV=0.9632
+      f1 = X_A - X_B
+      f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+   2. LOOCV=0.9632
+      f1 = X_A - X_B
+      f2 = ((abs(X_B))/(abs(packing)+1e-3))-(packing)
+   3. LOOCV=0.9599
+      f1 = X_A - X_B
+      f2 = (sqrt(abs((sqrt(abs(xA)))+(IE_A))))/(abs(packing)+1e-3)
+   4. LOOCV=0.9599
+      f1 = X_A - X_B
+      f2 = ((abs(IE_A))/(abs(packing)+1e-3))+(sqrt(abs(rcov_A)))
+   5. LOOCV=0.9599
+      f1 = X_A - X_B
+      f2 = (X_B)-(packing)
+   6. LOOCV=0.9599
+      f1 = X_A - X_B
+      f2 = (X_B)-(abs(packing))
+   7. LOOCV=0.9599
+      f1 = X_A - X_B
+      f2 = ((IE_A)*(sqrt(abs(dAB))))/(abs(packing)+1e-3)
+   8. LOOCV=0.9599
+      f1 = X_A - X_B
+      f2 = sqrt(abs((abs(packing))/(abs(log(abs(IE_A)+1e-3))+1e-3)))
+   9. LOOCV=0.9599
+      f1 = X_A - X_B
+      f2 = (((packing)-(X_B))*(IE_A))/(abs(IE_A)+1e-3)
+  10. LOOCV=0.9599
+      f1 = X_A - X_B
+      f2 = ((xA)/(abs((xA)/(abs(X_B)+1e-3))+1e-3))-(packing)
+
+======================================================================
+BEST DESCRIPTOR FROM MCTS
+  f1 = X_A - X_B
+  f2 = (((IE_A)+(IE_A))/(abs(packing)+1e-3))-(packing)
+  Train accuracy : 0.9666  (96.7%)
+  LOOCV accuracy : 0.9632  (96.3%)
+
+COMPARED TO SISSO BASELINE
+  Train accuracy : 0.9866  (98.7%)
+  LOOCV accuracy : 0.9866  (98.7%)
+
+  => MCTS LOOCV did not improve (-2.34%)
+
+--- Misclassification Analysis (best descriptor) ---
+  10 misclassified materials:
+Material prototype category predicted
+  Nd3Se4     Th3P4    metal  nonmetal
+    IrO2      TiO2    metal  nonmetal
+    RuO2      TiO2    metal  nonmetal
+    ReO3      ReO3    metal  nonmetal
+    HgTe       ZnS nonmetal     metal
+     GdN      NaCl nonmetal     metal
+  Eu4As3     Th3P4 nonmetal     metal
+    Cu3N      ReO3 nonmetal     metal
+      YP      NaCl nonmetal     metal
+  Th3As4     Th3P4 nonmetal     metal
+======================================================================
+
+Total runtime: 809.6s

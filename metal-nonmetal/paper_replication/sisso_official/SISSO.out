@@ -1,0 +1,47 @@
+****************************************************************
+  Sure Independence Screening and Sparsifying Operator (SISSO)  
+             Version SISSO.3.5, August, 2024.                
+****************************************************************
+
+Read in data from train.dat
+Read in data from SISSO.in
+Property type:     2
+Number of tasks:        1
+Descriptor dimension:        2
+Number of samples for the task(s):    299
+Restarts :  0
+Number of samples in each category of the task 001:   188  111
+Convexity of the domains of the task 001:     1    1
+Domain-boundary tolerance:   0.001000
+Scheme for feature storing in memory:        1
+Number of scalar features:        7
+Tier of the feature space (max depth of expression tree):        2
+Maximal feature complexity (number of operators in a feature):        3
+Unit of input primary feature, each represented by a row vector: 
+    1.00
+    1.00
+    1.00
+    1.00
+    1.00
+    1.00
+    1.00
+The feature will be discarded if the minimum of the maximal abs. value in it <    0.10000E-02
+The faature will be discarded if the maximum of the maximal abs. value in it >     0.10000E+06
+Size of the SIS-selected (single) subspace :  20000 20000
+Operators for feature construction: (+)(-)(*)(/)(exp)(log)(^-1)(^2)(^3)(sqrt)(|-|) (+)(-)(*)(/)(exp)(log)(^-1)(^2)(^3)(sqrt)(|-|) 
+Method for sparse regression:  L0        
+Number of the top-ranked models to output:      100
+--------------------------------------------------------------------------------
+
+Dimension:   1
+-------------------
+Feature Construction (FC) starts ...
+Total number of features in the space Phi00:              7
+Total number of features in the space Phi01:            181
+Total number of features in the space Phi02:          62883
+Size of the SIS-selected subspace from Phi02:      20000
+Time (second) used for this FC:            3.78
+
+Descriptor Identification (DI) starts ...
+Total number of SIS-selected features for this DI:      20000
+Time (second) used for this DI:            0.92
